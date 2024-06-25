@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegisterAccountComponent } from './pages/register-account/register-account.component';
-import { EditAccountComponent } from './pages/edit-account/edit-account.component';
+import { RegisterAccountComponent } from './pages/account/register-account/register-account.component';
+import { EditAccountComponent } from './pages/account/edit-account/edit-account.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';

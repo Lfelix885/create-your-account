@@ -8,11 +8,11 @@
 
 
   @media screen and (max-width: 1440px) {
-    padding: 0 4.25rem;
+    padding: 2.875rem 4.25rem;
   }
 
   @media screen and (max-width: 780px) {
-    padding: 0 28px;
+    padding: 2.875rem 28px;
   }
 }
 
