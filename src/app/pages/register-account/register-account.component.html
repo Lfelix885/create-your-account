@@ -1,0 +1,99 @@
+  <h1 class="mt-4">Abra sua conta</h1>
+
+  <form
+    class="mt-4"
+    [formGroup]="accountForm"
+    (ngSubmit)="onSubmit()"
+    >
+    <mat-form-field class="col-12" appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome">
+      <mat-error *ngIf="accountForm.get('nome')?.invalid && accountForm.get('nome')?.touched">
+        <small *ngIf="accountForm.get('nome')?.errors?.['required']">Nome é obrigatório.</small>
+        <small *ngIf="accountForm.get('nome')?.errors?.['minlength']">Nome deve ter no mínimo 3 caracteres.</small>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="row mt-2">
+      <mat-form-field class="col-6" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="accountForm.get('email')?.invalid && accountForm.get('email')?.touched">
+          <small *ngIf="accountForm.get('email')?.errors?.['required']">Email é obrigatório.</small>
+          <small *ngIf="accountForm.get('email')?.errors?.['email']">Email inválido.</small>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-6" appearance="fill">
+        <mat-label>Celular</mat-label>
+        <input matInput type="tel" formControlName="celular" maxlength="11">
+        <mat-error *ngIf="accountForm.get('celular')?.invalid && accountForm.get('celular')?.touched">
+          <small *ngIf="accountForm.get('celular')?.errors?.['required']">celular é obrigatóro.</small>
+          <small *ngIf="accountForm.get('celular')?.errors?.['minlength']">Senha deve ter no mínimo 6 caracteres.</small>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row mt-2">
+      <mat-form-field appearance="fill" class="col-3">
+        <mat-label>CEP</mat-label>
+        <input  class="form-control" (input)="buscarCep($event)" matInput type="text" formControlName="cep">
+        <mat-error *ngIf="accountForm.get('cep')?.invalid && accountForm.get('cep')?.touched">
+          <small *ngIf="accountForm.get('cep')?.errors?.['required']">cep é obrigatória.</small>
+          <small *ngIf="accountForm.get('cep')?.errors?.['minlength']">Senha deve ter no mínimo 6 caracteres.</small>
+        </mat-error>
+      </mat-form-field>
+
+    <mat-form-field appearance="fill" class="col-9">
+      <mat-label>Rua</mat-label>
+      <input matInput type="text" formControlName="logradouro">
+      <mat-error *ngIf="accountForm.get('logradouro')?.invalid && accountForm.get('logradouro')?.touched">
+        <small *ngIf="accountForm.get('logradouro')?.errors?.['required']">logradouro é obrigatória.</small>
+        <small *ngIf="accountForm.get('logradouro')?.errors?.['minlength']">Senha deve ter no mínimo 6 caracteres.</small>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+<div class="row mt-2">
+  <mat-form-field class="col-4" appearance="fill">
+    <mat-label>Número</mat-label>
+    <input matInput type="text" formControlName="numero">
+    <mat-error *ngIf="accountForm.get('numero')?.invalid && accountForm.get('numero')?.touched">
+      <small *ngIf="accountForm.get('numero')?.errors?.['required']">numero é obrigatória.</small>
+      <small *ngIf="accountForm.get('numero')?.errors?.['minlength']">numero deve ter no mínimo 6 caracteres.</small>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field  class="col-4" appearance="fill">
+    <mat-label>Bairro</mat-label>
+    <input matInput type="text" formControlName="bairro">
+    <mat-error *ngIf="accountForm.get('bairro')?.invalid && accountForm.get('bairro')?.touched">
+      <small *ngIf="accountForm.get('bairro')?.errors?.['required']">bairro é obrigatória.</small>
+      <small *ngIf="accountForm.get('bairro')?.errors?.['minlength']">bairro deve ter no mínimo 6 caracteres.</small>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field  class="col-4" appearance="fill">
+    <mat-label>Cidade</mat-label>
+    <input matInput type="text" formControlName="cidade">
+    <mat-error *ngIf="accountForm.get('cidade')?.invalid && accountForm.get('cidade')?.touched">
+      <small *ngIf="accountForm.get('cidade')?.errors?.['required']">cidade é obrigatória.</small>
+      <small *ngIf="accountForm.get('cidade')?.errors?.['minlength']">cidade deve ter no mínimo 6 caracteres.</small>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="col-12">
+    <mat-label>Complemento</mat-label>
+    <input matInput type="text" formControlName="complemento">
+    <mat-error *ngIf="accountForm.get('complemento')?.invalid && accountForm.get('complemento')?.touched">
+      <small *ngIf="accountForm.get('complemento')?.errors?.['required']">complemento é obrigatória.</small>
+      <small *ngIf="accountForm.get('complemento')?.errors?.['minlength']">Senha deve ter no mínimo 6 caracteres.</small>
+    </mat-error>
+  </mat-form-field>
+</div>
+
+<div class="d-flex mt-5">
+  <button class="w-25 ms-auto" mat-raised-button color="primary" type="submit" [disabled]="accountForm.invalid">Continuar</button>
+</div>
+
+</form>

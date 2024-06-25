@@ -1,0 +1,19 @@
+* {
+  padding: 2.875rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1440px;
+  width: 100%;
+
+
+  @media screen and (max-width: 1440px) {
+    padding: 0 4.25rem;
+  }
+
+  @media screen and (max-width: 780px) {
+    padding: 0 28px;
+  }
+}
+
+

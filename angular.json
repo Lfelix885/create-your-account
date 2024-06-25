@@ -5,7 +5,9 @@
   "projects": {
     "create-your-account": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "styles":"scss"
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -25,6 +27,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
