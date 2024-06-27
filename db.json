@@ -1,13 +1,23 @@
 {
-  "user": {
-    "name": "LEONARDO FELIX RODRIGUES GERONIMO",
-    "email": "lfelix@dsa.com",
-    "phone": "12321321",
-    "zipCode": "05775140",
-    "street": "Rua Antônio Pinheiro",
-    "addressNumber": "13",
-    "neighborhood": "Parque Regina",
-    "city": "São Paulo",
-    "complement": "1 d 13"
-  }
+  "accountPackages": [
+    {
+      "packageName": "Pacote: Essencial",
+      "description": "O pacote essencial, que lhe dará os beneficios que você precisa no seu dia a dia.",
+      "cards": "Visa, Mastercard e Pão de Açúcar",
+      "id": "1"
+    },
+    {
+      "packageName": "Pacote: Uniclass",
+      "description": "O pacote com muitos benefícios, lhe dando a liberdade do maior banco da america latina",
+      "cards": "Visa Platinum e Mastercard Platinum",
+      "id": "2"
+    },
+    {
+      "packageName": "Pacote: Personnalité",
+      "description": "O pacote dedicado a sua rotina, sua familia e bem estar. Conte conosco para tudo",
+      "cards": "Visa Infinite e Mastercard Black",
+      "id": "3"
+    }
+  ],
+  "userAccounts": []
 }

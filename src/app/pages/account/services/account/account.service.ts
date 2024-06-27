@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IUserAccount } from './account.model';
+import { IAccountPackage, ICreateAccount, ICreateAccountResponse, IUserAccount } from './account.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,23 +11,47 @@ export class AccountService {
 
   constructor(private http: HttpClient) {}
 
-  // // Read
-  // getPosts(): Observable<any> {
-  //   return this.http.get(`${this.apiUrl}/posts`);
-  // }
+  private userData: IUserAccount = {
+    name: '',
+    email: '',
+    phone: '',
+    zipCode: '',
+    street: '',
+    addressNumber: '',
+    city: '',
+    complement: '',
+    neighborhood: '',
+  };
 
-  // Create
-  createUser(userPayload: IUserAccount): Observable<IUserAccount> {
-    return this.http.put<IUserAccount>(`http://localhost:3000/user`, userPayload);
+  setUserData(data: IUserAccount) {
+    this.userData = data;
   }
 
-  // // Update
-  // updatePost(id: number, post: any): Observable<any> {
-  //   return this.http.put(`${this.apiUrl}/posts/${id}`, post);
-  // }
+  getUserData() {
+    return this.userData;
+  }
 
-  // // Delete
-  // deletePost(id: number): Observable<any> {
-  //   return this.http.delete(`${this.apiUrl}/posts/${id}`);
-  // }
+  // Read
+  getAccountPackages(): Observable<IAccountPackage[]> {
+    return this.http.get<IAccountPackage[]>(`${this.apiUrl}/accountPackages`);
+  }
+
+  getUserAccount(): Observable<ICreateAccountResponse[]> {
+    return this.http.get<ICreateAccountResponse[]>(`${this.apiUrl}/userAccounts`);
+  }
+
+  //create
+  createAccount(userPayload: ICreateAccount[]): Observable<ICreateAccountResponse> {
+    return this.http.post<ICreateAccountResponse>(`${this.apiUrl}/userAccounts`, userPayload);
+  }
+
+  // Update
+  updateAccount(id: string, accountData: ICreateAccount): Observable<ICreateAccount> {
+    return this.http.put<ICreateAccount>(`${this.apiUrl}/userAccounts/${id}`, accountData);
+  }
+
+  // Delete
+  deleteAccount(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/userAccounts/${id}`);
+  }
 }

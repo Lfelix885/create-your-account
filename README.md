@@ -1,27 +1,49 @@
-# CreateYourAccount
+# Create Your Account
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
+Este projeto foi gerado com Angular CLI versão 16.2.14.
 
-## Development server
+## Scripts Disponíveis
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+No diretório do projeto, você pode executar:
 
-## Code scaffolding
+### `ng serve`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Roda a aplicação em modo de desenvolvimento. Navegue até `http://localhost:4200/`. A aplicação irá recarregar automaticamente se você modificar qualquer arquivo fonte.
 
-## Build
+## Dependências
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- @angular/animations: ^16.2.0
+- @angular/cdk: ^16.2.14
+- @angular/common: ^16.2.0
+- @angular/compiler: ^16.2.0
+- @angular/core: ^16.2.0
+- @angular/forms: ^16.2.0
+- @angular/material: ^16.2.14
+- @angular/platform-browser: ^16.2.0
+- @angular/platform-browser-dynamic: ^16.2.0
+- @angular/router: ^16.2.0
+- bootstrap: ^5.3.3
+- rxjs: ~7.8.0
+- tslib: ^2.3.0
+- zone.js: ~0.13.0
 
-## Running unit tests
+## Funcionalidades Implementadas
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Formulário de cadastro com validação de campos.
+- Componentes reutilizáveis para cards de pacote de conta.
+- Integração com API para salvar e recuperar dados de conta (CRUD).
+- Responsividade utilizando classes do Bootstrap 5.
 
-## Running end-to-end tests
+## Como Usar
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    1. Clone o repositório: `git clone https://github.com/seu-usuario/create-your-account.git`
+    2. Instale as dependências: `npm install`
+    3. Inicie o servidor de desenvolvimento: `ng serve`
+    4. Abra o navegador e vá para `http://localhost:4200/`
 
-## Further help
+## Mais Informações
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Para mais informações sobre o Angular CLI, consulte a [documentação do Angular CLI](https://angular.io/cli).
+
+Este projeto foi criado por https://www.linkedin.com/in/leonardo-felix-10910a157/
+

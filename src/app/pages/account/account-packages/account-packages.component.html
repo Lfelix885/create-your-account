@@ -1,0 +1,28 @@
+<!-- <h1 class="mb-2">Olá {{userName}},</h1> -->
+<h2 class="mb-5">Escolha o pacote que mais combina com você</h2>
+
+<div class="row">
+  <app-account-package-card
+    *ngFor="let package of accountPackageList; let i = index"
+    class="col-md-4 mb-4"
+    [accountPackageData]="package"
+    [onCardClick]="cardClickHandler(package)"
+  />
+</div>
+
+<h3 *ngIf="selectedPackage" class="mt-5">
+  O {{ selectedPackage }}, combina com você
+</h3>
+
+<div class="mt-5 d-flex justify-content-end">
+  <button (click)="handleBackPage()" class="btn btn-secondary me-3">
+    Voltar
+  </button>
+  <button
+    (click)="handleCreateAccount()"
+    class="btn btn-primary"
+    [disabled]="!selectedPackage"
+  >
+    Criar conta
+  </button>
+</div>

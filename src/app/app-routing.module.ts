@@ -1,18 +1,34 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditAccountComponent } from './pages/account/edit-account/edit-account.component';
 import { RegisterAccountComponent } from './pages/account/register-account/register-account.component';
+import { AccountPackagesComponent } from './pages/account/account-packages/account-packages.component';
+import { AccountDetailsComponent } from './pages/account/account-details/account-details.component';
+import { WithoutAccountComponent } from './pages/account/without-account/without-account.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'pessoa-fisica/abra-sua-conta', pathMatch: 'full' },
+  { path: '', redirectTo: '/abra-sua-conta/cadastro', pathMatch: 'full' },
   {
-    path: 'pessoa-fisica/abra-sua-conta',
-    component: RegisterAccountComponent,
+    path: 'abra-sua-conta',
+    children: [
+      {
+        path: 'cadastro',
+        component: RegisterAccountComponent,
+      },
+      {
+        path: 'pacotes',
+        component: AccountPackagesComponent,
+      },
+      {
+        path: 'detalhes',
+        component: AccountDetailsComponent,
+      },
+    ],
   },
   {
-    path: 'pessoa-fisica/editar-conta',
-    component: EditAccountComponent,
+    path: 'conta-nao-encontrada',
+    component: WithoutAccountComponent,
   },
+  { path: '**', component: WithoutAccountComponent },
 ];
 
 @NgModule({

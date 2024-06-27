@@ -9,3 +9,20 @@ export interface IUserAccount {
   complement?: string;
   neighborhood: string;
 }
+
+export interface IAccountPackage {
+  packageName: string;
+  description: string;
+  cards: string;
+  id: string;
+}
+
+export interface ICreateAccount {
+  user: IUserAccount;
+  accountPackage: IAccountPackage;
+}
+
+export interface ICreateAccountResponse {
+  '0': ICreateAccount;
+  id: string;
+}

@@ -1,16 +1,5 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BuscarCepService } from './services/cep/buscar-cep.service';
 import { AccountService } from '../services/account/account.service';
@@ -20,7 +9,7 @@ import { AccountService } from '../services/account/account.service';
   templateUrl: './register-account.component.html',
   styleUrls: ['./register-account.component.scss'],
 })
-export class RegisterAccountComponent {
+export class RegisterAccountComponent implements OnInit {
   accountForm: FormGroup;
 
   constructor(
@@ -35,8 +24,8 @@ export class RegisterAccountComponent {
         '',
         [Validators.required, Validators.minLength(3), Validators.email],
       ],
-      phone: ['', [Validators.required, Validators.minLength(3)]],
-      zipCode: ['', [Validators.required, Validators.minLength(3)]],
+      phone: ['', [Validators.required, Validators.minLength(11)]],
+      zipCode: ['', [Validators.required, Validators.minLength(8)]],
       street: ['', [Validators.required, Validators.minLength(3)]],
       addressNumber: ['', [Validators.required, Validators.minLength(1)]],
       neighborhood: ['', [Validators.required, Validators.minLength(3)]],
@@ -45,26 +34,16 @@ export class RegisterAccountComponent {
     });
   }
 
-  // @Input() nome = 'Leonardo';
-  // @Input() nome = 'Leonardo';
-  // @Input() nome = 'Leonardo';
-  // @Input() nome = 'Leonardo';
-  // @Input() nome = 'Leonardo';
-  // @Input() nome = 'Leonardo';
-  // @Input() nome = 'Leonardo';
-  // @Input() nome = 'Leonardo';
+  ngOnInit(): void {
+    const userData = this.accountService.getUserData();
 
-  onSubmit() {
-    if (this.accountForm.valid) {
-      console.log('Formulário enviado', this.accountForm.value);
-    } else {
-      console.log('Formulário inválido');
+    if (userData) {
+      this.accountForm.patchValue(userData);
     }
   }
 
   buscarCep(event: Event) {
     const value = (event.target as HTMLInputElement).value;
-    console.log(value);
     if (value.length === 8)
       this.buscarCepService.buscarCep(value).subscribe(
         (data) => {
@@ -80,15 +59,8 @@ export class RegisterAccountComponent {
 
   goToPage() {
     if (this.accountForm.valid) {
-      this.accountService.createUser(this.accountForm.value).subscribe({
-        next: (res) => {
-          console.log(res);
-          this.router.navigate(['/pessoa-fisica/editar-conta']);
-        },
-        error: (err) => {
-          console.error(err);
-        },
-      });
+      this.accountService.setUserData(this.accountForm.value);
+      this.router.navigate(['/abra-sua-conta/pacotes']);
     }
   }
 }

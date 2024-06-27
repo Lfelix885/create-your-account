@@ -1,0 +1,45 @@
+<h1>Seja bem vindo(a) {{ userName }}!</h1>
+<h4 class="mb-5">Esperamos ser seu braço direito para suas conquistas!</h4>
+
+<h4 *ngIf="!showEditPackage" class="my-5">
+  O que deseja fazer antes de continuar?
+</h4>
+
+<div *ngIf="!showEditPackage" class="d-grid gap-3 d-md-flex justify-content-md-between">
+  <button (click)="handleToggleEditPackage()" class="btn btn-primary">
+    Editar meu pacote
+  </button>
+  <button (click)="onDeleteAccount()" class="btn btn-outline-danger">
+    Excluir minha conta
+  </button>
+</div>
+
+<div *ngIf="showEditPackage">
+  <h4>Atualmente o seu pacote é o {{ packageName }}</h4>
+  <h4>Com os benefícios dos cartões: {{ accountData.accountPackage.cards }}</h4>
+
+  <h4 *ngIf="!selectedPackageName" class="mt-5">
+    Deseja escolher outro pacote?
+  </h4>
+  <h4 *ngIf="selectedPackageName" class="mt-5">
+    O pacote {{ selectedPackageName }} combina com você
+  </h4>
+
+  <div class="row my-5" *ngIf="!!allPackages.length">
+    <app-account-package-card
+      *ngFor="let package of allPackages"
+      [accountPackageData]="package"
+      class="col-md-4 mb-4"
+      [onCardClick]="onSelectedPackage(package)"
+    />
+  </div>
+
+  <div class="d-grid gap-3 d-md-flex justify-content-md-between">
+    <button (click)="handleToggleEditPackage()" class="btn btn-primary">
+      Estou feliz com esse pacote
+    </button>
+    <button (click)="onSavePackage()" class="btn btn-outline-primary">
+      Salvar
+    </button>
+  </div>
+</div>

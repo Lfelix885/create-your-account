@@ -8,7 +8,7 @@ import { IBuscarCep } from './buscar-cep.model';
 })
 export class BuscarCepService {
 
-  private apiUrl = 'https://viacep.com.br/ws'; //
+  private apiUrl = 'https://viacep.com.br/ws';
 
   constructor(private http: HttpClient) { }
 

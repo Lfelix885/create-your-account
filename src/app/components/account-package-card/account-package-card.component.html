@@ -1,0 +1,11 @@
+<div class="card rounded-4">
+  <div class="card-body">
+    <h5 class="card-title">{{ accountPackageData.packageName }}</h5>
+    <p class="card-text">{{ accountPackageData.description }}</p>
+    <p class="card-text mt-2">{{ accountPackageData.cards }}</p>
+
+    <button (click)="handleClick()" class="btn btn-primary">
+      Selecionar pacote
+    </button>
+  </div>
+</div>
